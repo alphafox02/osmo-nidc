@@ -8,8 +8,7 @@ RUN apt-get update && \
                     iproute2 iptables dnsmasq \
                     tmux telnet tcpdump curl inetutils-ping procps netcat-traditional \
                     jq python3-argcomplete python3-tomlkit python3-xmltodict python3-yaml \
-                    uhd-host bladerf libbladerf2 libbladerf-dev bladerf-firmware-fx3 bladerf-fpga-hostedx115 \
-                    bladerf-fpga-hostedx40 bladerf-fpga-hostedxa4 bladerf-fpga-hostedxa9
+                    uhd-host bladerf libbladerf2 libbladerf-dev
 
 RUN wget https://ftp.debian.org/debian/pool/main/y/yq/yq_3.4.3-2_all.deb -O /tmp/yq_3.4.3-2_all.deb && \
     dpkg -i /tmp/yq_3.4.3-2_all.deb
@@ -29,6 +28,7 @@ RUN apt update && \
     && rm -rf /var/lib/apt/lists/*
 
 RUN uhd_images_downloader
+RUN bladeRF-install-firmware
 
 ENV UHD_IMAGES_DIR=/usr/share/uhd/images/
 
