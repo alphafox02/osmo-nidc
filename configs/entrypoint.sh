@@ -71,6 +71,8 @@ if [[ $(yq -rM '.radio."device-type"' /configs/config.yml) = "lime" ]]; then
     osmo-trx-lms -C /etc/osmocom/osmo-trx-lms.cfg &
 elif [[ $(yq -rM '.radio."device-type"' /configs/config.yml) = "uhd" ]]; then
     osmo-trx-uhd -C /etc/osmocom/osmo-trx-uhd.cfg &
+elif [[ $(yq -rM '.radio."device-type"' /configs/config.yml) = "blade" ]]; then
+    osmo-trx-ms-blade -C /etc/osmocom/osmo-trx-ms-blade.cfg &
 fi
 
 # need wait before trx is initialized, else osmo-bts will crash
