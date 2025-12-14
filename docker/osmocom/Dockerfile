@@ -19,7 +19,7 @@ RUN wget https://obs.osmocom.org/projects/osmocom/public_key && \
     echo "deb [signed-by=/etc/apt/trusted.gpg.d/osmocom.asc] $OSMOCOM_REPO/ ./" | tee /etc/apt/sources.list.d/osmocom-latest.list
 
 RUN apt update && \
-    apt install -y  osmo-trx-lms osmo-trx-uhd \
+    apt install -y  osmo-trx-lms osmo-trx-ms-blade osmo-trx-uhd \
                     osmo-bts-trx osmo-bsc osmo-msc osmo-hlr \
                     osmo-stp osmo-pcu \
                     osmo-sgsn osmo-ggsn \
